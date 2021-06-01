@@ -60,6 +60,14 @@ for (const {
   const calculoBaseMasIva = (base * tipoIva) / 100;
   ivaFactura.textContent = `${calculoBaseMasIva}€ (${tipoIva}%)`;
 
+  // Total
+  const precioEntero = filaElemento.querySelector(".base-mas-iva");
+  precioEntero.textContent = (base * tipoIva) / 100 + base;
+
+  // Estado
+  const estadoFactura = filaElemento.querySelector(".estado");
+  estadoFactura.textContent = abonada ? "Abonada" : "Pendiente";
+
   // Añadir filas
   contenedorFilas.append(filaElemento);
 }

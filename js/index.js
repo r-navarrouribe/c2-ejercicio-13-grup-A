@@ -83,7 +83,6 @@ for (const {
 
   // Estado
   const estadoFactura = filaElemento.querySelector(".estado");
-  estadoFactura.textContent = abonada ? "Abonada" : "Pendiente";
 
   if (abonada) {
     estadoFactura.textContent = "Abonada";

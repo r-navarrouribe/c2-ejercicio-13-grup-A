@@ -85,6 +85,16 @@ for (const {
   const estadoFactura = filaElemento.querySelector(".estado");
   estadoFactura.textContent = abonada ? "Abonada" : "Pendiente";
 
+  if (abonada) {
+    estadoFactura.textContent = "Abonada";
+    estadoFactura.classList.add("fondo-verde");
+    estadoFactura.classList.remove("fondo-rojo");
+  } else {
+    estadoFactura.textContent = "Pendiente";
+    estadoFactura.classList.add("fondo-rojo");
+    estadoFactura.classList.remove("fondo-verde");
+  }
+
   // Añadir filas
   contenedorFilas.append(filaElemento);
 }

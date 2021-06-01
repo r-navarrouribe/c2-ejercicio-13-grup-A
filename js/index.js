@@ -63,3 +63,26 @@ for (const {
   // Añadir filas
   contenedorFilas.append(filaElemento);
 }
+
+// Pie de tabla
+const baseTotal = document.querySelector(".base-total");
+const ivaTotal = document.querySelector(".iva-total");
+const totalTotal = document.querySelector(".total-total");
+
+baseTotal.textContent = `${facturasIngreso.reduce(
+  (acumulador, { base }) => acumulador + base,
+  0
+)}€`;
+
+ivaTotal.textContent = `${facturasIngreso.reduce(
+  (acumulador, { tipoIva, base }) => acumulador + (base * tipoIva) / 100,
+  0
+)}€`;
+
+totalTotal.textContent = `${facturasIngreso
+  .reduce(
+    (acumulador, { tipoIva, base }) =>
+      acumulador + (base + (base * tipoIva) / 100),
+    0
+  )
+  .toFixed(2)}€`;

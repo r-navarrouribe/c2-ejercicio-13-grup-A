@@ -231,3 +231,11 @@ button[type="submit"] {
 .fila-molde {
   display: none;
 }
+
+.fondo-rojo {
+  background-color: #f5c6cb;
+}
+
+.fondo-verde {
+  background-color: #c3e6cb;
+}

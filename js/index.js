@@ -42,7 +42,24 @@ for (const {
 
   const vencimientoFactura = filaElemento.querySelector(".vence");
   const pasarFechaVencimiento = new Date(vencimiento);
-  vencimientoFactura.textContent = pasarFechaVencimiento.toLocaleDateString();
+
+  if (abonada) {
+    vencimientoFactura.textContent = "-";
+    vencimientoFactura.classList.remove("fondo-rojo");
+    vencimientoFactura.classList.remove("fondo-verde");
+  } else if (pasarFechaVencimiento > new Date()) {
+    vencimientoFactura.textContent = `${pasarFechaVencimiento.toLocaleDateString()} faltan ${Math.floor(
+      (pasarFechaVencimiento - new Date()) / 86400000
+    )} días`;
+    vencimientoFactura.classList.add("fondo-verde");
+    vencimientoFactura.classList.remove("fondo-rojo");
+  } else {
+    vencimientoFactura.textContent = `${pasarFechaVencimiento.toLocaleDateString()} hace ${Math.floor(
+      (new Date() - pasarFechaVencimiento) / 86400000
+    )} días`;
+    vencimientoFactura.classList.add("fondo-rojo");
+    vencimientoFactura.classList.remove("fondo-verde");
+  }
 
   // Concepto
 
